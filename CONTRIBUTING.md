@@ -1,12 +1,8 @@
 # Contribution guidelines
 
-## Adding to TODOs
-
-If you think something should be different or added to any of the TODOs feel free to [open an issue](https://github.com/lgss/devdev/issues/new) and the team can discuss it, alternatively, fork this repo, add it yourself and submit at pull request.
-
 ## Raising bugs with the project
 
-Bugs are reported as issues, but with the #bug tag. Please explain the issue in good detail and if neccesary, provide a guide to how to replicate it.
+Bugs are reported as issues, but with the #bug tag. Please explain the issue in good detail and if neccesary, provide a guide to how to replicate it. The project is located https://github.com/willwise/nationwise.git
 When describing the bug it's useful to follow the format:
 
 - what you did
