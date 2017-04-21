@@ -12,6 +12,8 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "helmet": "^3.5.0"
+    "express-nunjucks": "^2.2.3",
+    "helmet": "^3.5.0",
+    "nunjucks": "^3.0.0"
   }
 }
