@@ -1,11 +1,21 @@
 var express = require('express');
 var helmet = require('helmet');
 var bodyParser = require('body-parser');
+const expressNunjucks = require('express-nunjucks');
+
+const PORT = process.env.PORT || 3000;
 
 var routes = require('./routes.js');
 var app = express();
+const isDev = app.get('env') === 'development';
+app.set('views', __dirname + '/templates');
 
-const PORT = process.env.PORT || 3000;
+const njk = expressNunjucks(app, {
+    watch: isDev,
+    noCache: isDev,
+    autoescape: true,
+    throwOnUndefined: isDev 
+});
 
 app.use(helmet()); // security stuffs
 app.use(bodyParser.json()); // for parsing application/json
@@ -14,7 +24,7 @@ app.use((req,res,next) => {
 	var log = {
 		body: req.body,
 		params: req.params,
-		queryStr: req.query
+		queryStr: req.query,
 	};
 	
 	console.log(JSON.stringify(log, null, 2));
