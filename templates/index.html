@@ -18,15 +18,7 @@
   </head>
   <body class="md-os-unknownOS anim">
     <header class="header-wrapper">
-      <nav class="header-nav">
-        <a class="header-nav-logo" href="/">
-          <img class="header-logo" src="/static/images/logo-inverse.svg" alt="Monzo">
-          <img class="header-logo-mark" src="/static/images/mondo-mark-01.png" alt="Monzo">
-        </a>
-        <a href="/about">About</a>
-        <a href="/blog">Blog</a>
-        <a class="header-button" href="/download">Sign up</a>
-      </nav>
+      {% include "navigation.html" %}
     </header>
     <section id="main" class="main">
       <!-- HEADER SETION -->
@@ -153,31 +145,8 @@
     </section>
     <footer class="footer-wrapper">
       <div class="footer-container">
-        <nav class="nav">
-          <a href="/about">About</a>
-          <a href="/blog">Blog</a>
-          <a href="/help">Help</a>
-          <a href="/community">Community</a>
-          <a href="/careers">Careers</a>
-          <a href="/transparency">Transparency</a>
-          <a href="/press">Press</a>
-          <a href="/docs">API</a>
-          <a href="/terms">Terms</a>
-        </nav>
-        <nav class="share-nav">
-          <a href="https://twitter.com/monzo" target="_blank">
-            <img src="/static/images/twitter.svg" alt="Twitter">
-          </a>
-          <a href="https://www.facebook.com/monzobank" target="_blank">
-            <img src="/static/images/facebook.svg" alt="Facebook">
-          </a>
-          <a href="https://www.linkedin.com/company/monzo-bank" target="_blank">
-            <img src="/static/images/linkedin.svg" alt="LinkedIn">
-          </a>
-          <a href="mailto:hello@monzo.com" target="_blank">
-            <img src="/static/images/mail.svg" alt="Drop us an email">
-          </a>
-        </nav>
+       {% include "footernav.html" %}
+       {% include "sharenav.html" %}
         <p>
           Monzo Bank Limited is a company registered in England and Wales (No. 09446231). Monzo Bank Ltd is authorised by the Prudential Regulation Authority (PRA) and regulated by the Financial Conduct Authority and the PRA.  Our Financial Services Register number is 730427.
         </p>
