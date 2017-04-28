@@ -1,127 +1,103 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" content="Nationwise lets you bank like a boss">
-    <title>Nationwise – Banking like a boss</title>
-    <link rel="stylesheet" href="/CSS/style.css">
-    <!-- Open Graph -->
-    <!--<meta property="og:type" content="website">
-    <meta property="og:title" content="">
-    <meta property="og:url" content="https://monzo.com/">
-    <meta property="og:description" content="Monzo are building a smart bank on your smartphone and we need your help to create the bank of the future.">
-    <meta property="og:image" content="https://monzo.com/static/images/facebook-campaign-image-01.png">
-    <meta property="og:locale" content="en_GB"> -->
-  </head>
-  <body class="md-os-unknownOS anim">
-    <!-- HEADER -->
-    {% include "header.html" %}
-    <!-- END HEADER -->
-    <section id="main" class="main">
-      <!-- SECTION -->
-      <div class="home-header-wrapper">
-        <div class="home-header-container">
-          <div class="home-header-content">
+{% extends "parent.html" %}
+{% block mainContent %}
+<section id="main" class="main">
+  <!-- SECTION -->
+  <div class="home-header-wrapper">
+    <div class="home-header-container">
+      <div class="home-header-content">
 
-            <h1>The bank of the future</h1>
-            <p>
-              Built for your smartphone, this is banking like never before. One that updates your
-              balance instantly, sends intelligent notifications, and is actually easy to use.
-            </p>
-            <p>We’re building the best bank on the planet and we want you on board.</p>
+        <h1>The bank of the future</h1>
+        <p>
+          Built for your smartphone, this is banking like never before. One that updates your
+          balance instantly, sends intelligent notifications, and is actually easy to use.
+        </p>
+        <p>We’re building the best bank on the planet and we want you on board.</p>
 
-          </div>
-
-          <div style="clear: both;"></div>
-
-        </div>
       </div>
-      <!-- END SECTION -->
-      <!-- FIRST INFO SETION -->
-      <div class="home-info-wrapper">
-        <div class="home-info-flex-container">
-          <div class="home-info-flex-box-text">
-            <div class="home-info-flex-box-text-container">
-              <div class="home-info-title">
-                Monzo isn’t your typical banking app. It’s powerful, fast, and beautiful.
-              </div>
-              <p class="home-info-text">
-                Get instant spending notifications, add receipts to your purchases, manage your budget, and more.
-                We don’t charge setup or usage fees, and there are zero charges for spending abroad.
-              </p>
-            </div>
+
+      <div style="clear: both;"></div>
+
+    </div>
+  </div>
+  <!-- END SECTION -->
+  <!-- FIRST INFO SETION -->
+  <div class="home-info-wrapper">
+    <div class="home-info-flex-container">
+      <div class="home-info-flex-box-text">
+        <div class="home-info-flex-box-text-container">
+          <div class="home-info-title">
+            Monzo isn’t your typical banking app. It’s powerful, fast, and beautiful.
           </div>
-        </div>
-      </div>
-      <!-- END FIRST INFO SETION -->
-      <!-- CUSTOMER SUPPORT SETION -->
-      <div class="home-support-wrapper">
-        <div class="home-support-container">
-          <div class="home-support-title">Fast and friendly support</div>
-          <p class="home-support-text">
-            Still having to wait on hold for hours to get anything sorted with your bank?
-            Monzo provides world-class support through in-app chat, with an average
-            response time of under ten minutes.
+          <p class="home-info-text">
+            Get instant spending notifications, add receipts to your purchases, manage your budget, and more.
+            We don’t charge setup or usage fees, and there are zero charges for spending abroad.
           </p>
         </div>
       </div>
-      <!-- END CUSTOMER SUPPORT SETION -->
-      <!-- SECOND INFO SETION -->
-      <div class="home-info-wrapper">
-        <div class="home-info-flex-container-reverse">
-          <div class="home-info-flex-box-text">
-            <div class="home-info-flex-box-text-container">
-              <div class="home-info-title">
-                We started Monzo because we think that banking should be better
-              </div>
-              <p class="home-info-text">
-                In a world where you can use an app on your phone to order food or a taxi, it’s ridiculous that your bank still takes days to update your balance when you make a card payment.
-              </p>
-              <p class="home-info-text">
-                We’re building the bank of the future, available&nbsp;now.
-              </p>
-            </div>
+    </div>
+  </div>
+  <!-- END FIRST INFO SETION -->
+  <!-- CUSTOMER SUPPORT SETION -->
+  <div class="home-support-wrapper">
+    <div class="home-support-container">
+      <div class="home-support-title">Fast and friendly support</div>
+      <p class="home-support-text">
+        Still having to wait on hold for hours to get anything sorted with your bank?
+        Monzo provides world-class support through in-app chat, with an average
+        response time of under ten minutes.
+      </p>
+    </div>
+  </div>
+  <!-- END CUSTOMER SUPPORT SETION -->
+  <!-- SECOND INFO SETION -->
+  <div class="home-info-wrapper">
+    <div class="home-info-flex-container-reverse">
+      <div class="home-info-flex-box-text">
+        <div class="home-info-flex-box-text-container">
+          <div class="home-info-title">
+            We started Monzo because we think that banking should be better
           </div>
-        </div>
-      </div>
-      <!-- END SECOND INFO SETION -->
-      <!-- THIRD INFO SETION -->
-      <div class="home-info-wrapper">
-        <div class="home-info-flex-container">
-          <div class="home-info-flex-box-text">
-            <div class="home-info-flex-box-text-container">
-              <div class="home-info-title">
-                Banking doesn’t have to be old fashioned
-              </div>
-              <p class="home-info-text">
-                We’re building our systems from scratch, using the latest technology used by Amazon and Google, so we can give you a real-time balance on your account.
-              </p>
-              <p class="home-info-text">
-                Use our API to build apps using your own data, and send us feedback on what features you’d like to see next using our forum.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- END THIRD INFO SETION -->
-      <!-- STORE SETION -->
-      <div class="home-store-wrapper">
-        <div class="home-store-container">
-          <div class="home-store-title">Help us build the kind of bank you want to use</div>
-          <p class="home-store-text">
-            Download the Monzo app on iOS or Android to join our Beta, and become
-            one of the hundreds of thousands of people helping us build a better bank.
+          <p class="home-info-text">
+            In a world where you can use an app on your phone to order food or a taxi, it’s ridiculous that your bank still takes days to update your balance when you make a card payment.
           </p>
-          <!--a>Learn more about Monzo</a-->
+          <p class="home-info-text">
+            We’re building the bank of the future, available&nbsp;now.
+          </p>
         </div>
-      </div> 
-       <!-- END STORE SETION -->
-    </section>
-    <!-- FOOTER -->
-    {% include "footer.html" %}
-    <!-- END FOOTER -->
-  </body>
-</html>
+      </div>
+    </div>
+  </div>
+  <!-- END SECOND INFO SETION -->
+  <!-- THIRD INFO SETION -->
+  <div class="home-info-wrapper">
+    <div class="home-info-flex-container">
+      <div class="home-info-flex-box-text">
+        <div class="home-info-flex-box-text-container">
+          <div class="home-info-title">
+            Banking doesn’t have to be old fashioned
+          </div>
+          <p class="home-info-text">
+            We’re building our systems from scratch, using the latest technology used by Amazon and Google, so we can give you a real-time balance on your account.
+          </p>
+          <p class="home-info-text">
+            Use our API to build apps using your own data, and send us feedback on what features you’d like to see next using our forum.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END THIRD INFO SETION -->
+  <!-- STORE SETION -->
+  <div class="home-store-wrapper">
+    <div class="home-store-container">
+      <div class="home-store-title">Help us build the kind of bank you want to use</div>
+      <p class="home-store-text">
+        Download the Monzo app on iOS or Android to join our Beta, and become
+        one of the hundreds of thousands of people helping us build a better bank.
+      </p>
+      <!--a>Learn more about Monzo</a-->
+    </div>
+  </div> 
+   <!-- END STORE SETION -->
+</section>
+{% endblock %}
