@@ -7,7 +7,11 @@ router.get('/', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
-    res.render('signup');
+    res.render('signup', { title: 'Sign up'});
+});
+
+router.get('/about', (req, res) => {
+    res.render('about', { title: 'About'});
 });
 
 module.exports = router; 

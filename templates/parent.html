@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
     <meta name="format-detection" content="telephone=no">
     <meta name="description" content="Nationwise lets you bank like a boss">
-    <title>Nationwise – Banking like a boss</title>
+    <title>
+    {% if title %}
+    {{ title }} 
+    {% endif %}
+    Nationwise – Banking like a boss
+    </title>
     <link rel="stylesheet" href="/CSS/style.css">
     <!-- Open Graph -->
     <!--<meta property="og:type" content="website">
