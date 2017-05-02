@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 var routes = require('./routes.js');
 var app = express();
 const isDev = app.get('env') === 'development';
-app.set('views', __dirname + '/templates');
+app.set('views', __dirname + '/views');
 
 const njk = expressNunjucks(app, {
     watch: isDev,
