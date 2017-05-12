@@ -16,8 +16,12 @@ router.get('/signup', (req, res) => {
 
 router.get('/signup/confirmation', (req, res) => {
 	//Retrieve data from sign up form
-	var username = req.query.username;
-	var password = req.query.password;
+	var username = req.query.username,
+	forename = req.query.forename,
+	surname = req.query.surname,
+	email = req.query.email,
+	password = req.query.password;
+
 
 	console.log('Username: ' + username);
 	console.log('Password: ' + password);
@@ -25,6 +29,9 @@ router.get('/signup/confirmation', (req, res) => {
 	//Create user with user model
 	var newUser = new User ({
 		username: username,
+		forename: forename,
+		surname: surname,
+		email: email,
 		password: password
 	});
 
