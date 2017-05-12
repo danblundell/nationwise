@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var passportLocalMongoose = require('passport-local-mongoose');
-mongoose.Promise = global.Promise;
 
 var User = new Schema({
 	username: String,

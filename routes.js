@@ -2,6 +2,8 @@ var express = require('express');
 var User = require('./models/user');
 var router = express.Router();
 var mongoose = require('mongoose');
+
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/nationwise_db');
 
 var passport = require('passport');
