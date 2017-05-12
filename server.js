@@ -3,6 +3,10 @@ var helmet = require('helmet');
 var bodyParser = require('body-parser');
 const expressNunjucks = require('express-nunjucks');
 
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var cookieParser = require('cookie-parser');
+
 const PORT = process.env.PORT || 3000;
 
 var routes = require('./routes.js');
@@ -31,6 +35,23 @@ app.use((req,res,next) => {
 	console.log(JSON.stringify(log, null, 2));
 	next();
 }); // log specific request objects for clarity when testing
+
+//http://mherman.org/blog/2015/01/31/local-authentication-with-passport-and-express-4/#.WRWQAdrytPY
+
+app.use(cookieParser());
+app.use(require('express-session')({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+// passport config
+var User = require('./Models/user');
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // routes (found in routes.js)
 if (typeof (routes) !== 'function') {
