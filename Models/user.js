@@ -5,6 +5,9 @@ mongoose.Promise = global.Promise;
 
 var User = new Schema({
 	username: String,
+	forename: String,
+	surname: String,
+	email: String,
 	password: String,
 	updated: { type: Date, default: Date.now }
 });
