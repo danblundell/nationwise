@@ -8,5 +8,10 @@
 	<nav>
 	    <a href="/signup">Sign up</a>
 	    <a href="/products">Products</a>
+	    {% if user %} 
+    	<a href="/logout">Log out</a>
+    	{% else %}
+    	<a href="/login">Log in</a>
+    	{% endif %}
 	</nav>
 </header>

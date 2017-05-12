@@ -48,6 +48,11 @@ router.post('/login', passport.authenticate('local'), function(req, res){
 	res.redirect('/profile');
 });
 
+router.get('/logout', function(req, res){
+	req.logout();
+  	res.redirect('/');
+});
+
 router.get('/profile', (req, res) => {
     res.render('profile', { title: 'Profile', user: req.user});
 });
