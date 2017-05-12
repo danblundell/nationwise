@@ -5,6 +5,7 @@ This is a fictious banking app used to develop coding skills
 ## Requirements
 
 * node (v4+)
+* nodemon
 * npm
 * heroku
 * a healthy dose of optimism
@@ -15,7 +16,6 @@ To bring in dependencies run:
 ```
 npm install
 ```
-
 To start the service run:
 ```
 npm start
