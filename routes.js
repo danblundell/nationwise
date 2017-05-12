@@ -7,19 +7,17 @@ mongoose.connect('mongodb://localhost/nationwise_db');
 var passport = require('passport');
 
 
-// respond to GET requests
+// home page
 router.get('/', (req, res) => {
     res.render('index');
 });
 
+// show sign up page
 router.get('/signup', (req, res) => {
     res.render('signup', { title: 'Sign up'});
 });
 
-router.get('/signup/confirmation', (req, res) => {
-    res.render('success', { title: 'Success'});
-});
-
+// sign up and log in simultaniously
 router.post('/signup', function(req, res) {
 	User.register(new User({ username : req.body.username, forename: req.body.forename, surname: req.body.surname, email: req.body.email}), req.body.password, function(err, user){
 		if (err) {
@@ -36,25 +34,36 @@ router.post('/signup', function(req, res) {
 	});
 });
 
-router.get('/products', (req, res) => {
-    res.render('products', { title: 'Products'});
+// confirm the sign up (deprecated)
+router.get('/signup/confirmation', (req, res) => {
+    res.render('success', { title: 'Success'});
 });
 
+// show log in page
 router.get('/login', (req, res) => {
     res.render('login', { title: 'Log in'});
 });
 
+// process log in
 router.post('/login', passport.authenticate('local'), function(req, res){
 	res.redirect('/profile');
 });
 
+// process log out
 router.get('/logout', function(req, res){
 	req.logout();
   	res.redirect('/');
 });
 
+
+// show profile page (needs refactor to users personalised url)
 router.get('/profile', (req, res) => {
     res.render('profile', { title: 'Profile', user: req.user});
+});
+
+// route to products page
+router.get('/products', (req, res) => {
+    res.render('products', { title: 'Products'});
 });
 
 module.exports = router; 
