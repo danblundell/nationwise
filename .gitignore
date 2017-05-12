@@ -5,4 +5,5 @@ bower_components/
 
 npm-debug.log
 
-sanbox_db/
+sandbox_db/
+playground/

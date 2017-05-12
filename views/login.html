@@ -1,15 +1,15 @@
 {% extends "parent.html" %}
 {% block mainContent %}
 <div>
-	<h2>Sign up</h2>
+	<h2>Log in</h2>
 </div>
 <div>
-	<form action="/signup" method="post">
+	<form action="signup/confirmation">
 	Username: <input type="text" name="username"></input>
 	<br>
 	Password: <input type="text" name="password"></input>
 	<br>
-	<button>Sign up</button>
+	<button>Log in</button>
 </form>
 </div>
 {% endblock %}
