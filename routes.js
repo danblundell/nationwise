@@ -23,11 +23,16 @@ router.get('/signup/confirmation', (req, res) => {
 router.post('/signup', function(req, res) {
 	User.register(new User({ username : req.body.username, forename: req.body.forename, surname: req.body.surname, email: req.body.email}), req.body.password, function(err, user){
 		if (err) {
-			return res.render('failure'); //TODO go to signup refresh and repopulate user.
+			return res.render('failure', { error : err.message }); //TODO go to signup refresh and repopulate user.
 		}
 		passport.authenticate('local')(req, res, function(){
-			res.redirect('/signup/confirmation');
-		})
+			req.session.save(function (err){
+				if(err) {
+					return next(err);
+				}
+				res.redirect('/profile');
+			});
+		});
 	});
 });
 
@@ -37,6 +42,14 @@ router.get('/products', (req, res) => {
 
 router.get('/login', (req, res) => {
     res.render('login', { title: 'Log in'});
+});
+
+router.post('/login', passport.authenticate('local'), function(req, res){
+	res.redirect('/profile');
+});
+
+router.get('/profile', (req, res) => {
+    res.render('profile', { title: 'Profile', user: req.user});
 });
 
 module.exports = router; 
