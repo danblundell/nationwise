@@ -1,9 +1,11 @@
 {% extends "parent.html" %}
 {% block mainContent %}
 <div>
-	<h2>Failure</h2>
+	<h2>Profile</h2>
 </div>
 <div>
-	<p>{{ error }}</p>
+	<p>
+		{{ user.username }}
+	</p>
 </div>
 {% endblock %}
