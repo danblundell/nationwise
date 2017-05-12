@@ -1,5 +1,5 @@
 var express = require('express');
-var User = require('./Models/user');
+var User = require('./models/user');
 var router = express.Router();
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/nationwise_db');
