@@ -2,9 +2,5 @@
 @import "shared/fonts";
 @import "shared/footer";
 @import "shared/header";
+@import "shared/navigation";
 @import "{}/node_modules/bootstrap/scss/bootstrap.scss"; 
-
-
-.fixed-top {
-	position: relative;
-}
