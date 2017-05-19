@@ -1,4 +1,9 @@
-h1 {
-  color: green; }
+@charset "UTF-8";
+.fixed-top {
+  position: relative; }
+
+@import┬á "{}/node_modules/bootstrap/scss/bootstrap.scss";
+.fixed-top {
+  position: relative; }
 
 /*# sourceMappingURL=style.css.map */

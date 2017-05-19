@@ -11,11 +11,13 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "bootstrap": "^4.0.0-alpha.6",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
     "express-nunjucks": "^2.2.3",
     "express-session": "^1.15.2",
     "helmet": "^3.5.0",
+    "jquery": "^3.2.1",
     "mongodb": "^2.2.26",
     "mongoose": "^4.9.7",
     "nunjucks": "^3.0.0",
