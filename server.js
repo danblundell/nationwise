@@ -7,6 +7,9 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var cookieParser = require('cookie-parser');
 
+var jQuery = require('jquery');
+//var bootstrap = require('bootstrap');
+
 const PORT = process.env.PORT || 3000;
 
 var routes = require('./routes.js');
