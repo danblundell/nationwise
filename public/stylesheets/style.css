@@ -2,8 +2,9 @@
 .fixed-top {
   position: relative; }
 
+.nav-item a.home-nav.nav-link {
+  color: #ffffff; }
+
 @import┬á "{}/node_modules/bootstrap/scss/bootstrap.scss";
-.fixed-top {
-  position: relative; }
 
 /*# sourceMappingURL=style.css.map */
