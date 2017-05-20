@@ -1,30 +1,32 @@
 {% extends "parent.html" %}
 {% block mainContent %}
-<div>
+<div class="container">
 	<h2>Products</h2>
-</div>
-<div>
-	<table>
-	  <tr>
-	    <th>Product</th>
-	    <th>Type</th> 
-	  </tr>
-	  <tr>
-	    <td>One</td>
-	    <td>Current Account</td> 
-	  </tr>
-	  <tr>
-	    <td>Two</td>
-	    <td>Savings Account</td> 
-	  </tr>
-	  <tr>
-	    <td>Three</td>
-	    <td>Credit Card</td> 
-	  </tr>
-	  <tr>
-	    <td>Four</td>
-	    <td>Loan</td> 
-	  </tr>
-	</table>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Product</th>
+			<th>Type</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>One</td>
+			<td>Current Account</td>
+		</tr>
+		<tr>
+			<td>Two</td>
+			<td>Savings Account</td>
+		</tr>
+		<tr>
+			<td>Three</td>
+			<td>Credit Card</td>
+		</tr>
+		<tr>
+			<td>Four</td>
+			<td>Loan</td>
+		</tr>
+	</tbody>
+</table>
 </div>
 {% endblock %}

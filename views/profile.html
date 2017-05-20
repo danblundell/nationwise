@@ -1,11 +1,7 @@
 {% extends "parent.html" %}
 {% block mainContent %}
-<div>
+<div class="container">
 	<h2>Profile</h2>
-</div>
-<div>
-	<p>
-		{{ user.username }}
-	</p>
+	<p>Welcome {{ user.username }}</p>
 </div>
 {% endblock %}

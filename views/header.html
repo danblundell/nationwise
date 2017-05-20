@@ -1,33 +1,31 @@
-<header>
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+<header class ="bg-inverse">
+<div class="container">
+  <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      	<a href="/"><img src="/assets/images/logo.png" height="50px" alt="Nationwise"></a>
+
+      <a href="/"><img src="/assets/images/logo.png" height="50px" alt="Nationwise"></a>
 
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="nav-link home-nav" href="/">Nationwise</a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/signup">Sign up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/signup">Sign up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/products">Products</a>
+            <a class="nav-link text-white" href="/products">Products</a>
           </li>
           {% if user %} 
           <li class="nav-item">
-            <a class="nav-link" href="/logout">Log out</a>
+            <a class="nav-link text-white" href="/logout">Log out</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="/login">Log in</a>
+            <a class="nav-link text-white" href="/login">Log in</a>
           </li>
           {% endif %}
         </ul>
       </div>
-    </nav>
-
-
+  </nav>
+</div>
 </header>
