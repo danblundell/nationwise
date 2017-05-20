@@ -2,6 +2,10 @@
 .fixed-top {
   position: relative; }
 
+body {
+  padding-top: 0;
+  padding-bottom: 0; }
+
 .nav-item a.home-nav.nav-link {
   color: #ffffff; }
 
