@@ -6,6 +6,7 @@ const expressNunjucks = require('express-nunjucks');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 var cookieParser = require('cookie-parser');
 
 var jQuery = require('jquery');
@@ -14,6 +15,8 @@ var jQuery = require('jquery');
 const PORT = process.env.PORT || 3000;
 const GOOGLE_CLIENT_ID = "405896018120-n8mmjoal7d3njearpd629lkd2maurvpm.apps.googleusercontent.com";
 const GOOGLE_CLIENT_SECRET = "31_6lFXplAVbrrx9AsaIy4e2";
+const FACEBOOK_APP_ID = "1528297420585027";
+const FACEBOOK_APP_SECRET = "43c854dd5f3d582a3237abfb83bbf7fd";
 
 var routes = require('./routes.js');
 var app = express();
@@ -68,7 +71,40 @@ passport.use(new GoogleStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
         console.log(profile);
-       User.findOne({ oauthID: profile.id }, function (err, user) {
+        User.findOne({ oauthID: profile.id }, function (err, user) {
+         if(err) {
+            console.log(err);  // handle errors!
+          }
+          if (!err && user !== null) {
+            done(null, user);
+          } else {
+            user = new User({
+              oauthID: profile.id,
+              forename: profile.name.givenName,
+              surname: profile.name.familyName,
+              username: profile.displayName
+            });
+            user.save(function(err) {
+              if(err) {
+                console.log(err);  // handle errors!
+              } else {
+                console.log("saving user ...");
+                done(null, user);
+              }
+            });
+          }
+       });
+  }
+));
+
+passport.use(new FacebookStrategy({
+    clientID: FACEBOOK_APP_ID,
+    clientSecret: FACEBOOK_APP_SECRET,
+    callbackURL: "http://localhost:3000/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+    console.log(profile);
+        User.findOne({ oauthID: profile.id }, function (err, user) {
          if(err) {
             console.log(err);  // handle errors!
           }
