@@ -2,6 +2,8 @@ var express = require('express');
 var User = require('./models/user');
 var router = express.Router();
 var mongoose = require('mongoose');
+var Account = require('./models/account');
+var ObjectId = mongoose.Schema.Types.ObjectId;
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/nationwise_db');
@@ -60,7 +62,18 @@ router.get('/logout', function(req, res){
 
 // show profile page (needs refactor to users personalised url)
 router.get('/profile', (req, res) => {
-    res.render('profile', { title: 'Profile', user: req.user});
+	//get logged in user id
+	User.findOne({'username':req.user.username},function(err, user) {
+		if (err) return handleError(err);
+		//look in account for that users account
+		Account.findOne({'userid': user._id},function(err, account) {
+		if (err) return handleError(err);
+
+		//get back the account object
+		//pass it to the template
+	    res.render('profile', { title: 'Profile', user: req.user, account:account});
+		});
+	});
 });
 
 // route to products page
