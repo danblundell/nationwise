@@ -3,7 +3,9 @@
 <div class="container">
 	<h2>Profile</h2>
 	<p>Welcome {{ user.username }}</p>
+	{% if account %}
 	<p>account {{ account.accountnumber }}</p>
 	<p>Description: {{ account.description }}</p>
+	{% endif %}
 </div>
 {% endblock %}
