@@ -5,12 +5,15 @@ const expressNunjucks = require('express-nunjucks');
 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var cookieParser = require('cookie-parser');
 
 var jQuery = require('jquery');
 //var bootstrap = require('bootstrap');
 
 const PORT = process.env.PORT || 3000;
+const GOOGLE_CLIENT_ID = "405896018120-n8mmjoal7d3njearpd629lkd2maurvpm.apps.googleusercontent.com";
+const GOOGLE_CLIENT_SECRET = "31_6lFXplAVbrrx9AsaIy4e2";
 
 var routes = require('./routes.js');
 var app = express();
@@ -53,8 +56,51 @@ app.use(passport.session());
 // passport config
 var User = require('./models/user');
 passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+
+//    Use the GoogleStrategy within Passport.
+//   Strategies in Passport require a `verify` function, which accept
+//   credentials (in this case, an accessToken, refreshToken, and Google
+//   profile), and invoke a callback with a user object.
+passport.use(new GoogleStrategy({
+    clientID: GOOGLE_CLIENT_ID,
+    clientSecret: GOOGLE_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+        console.log(profile);
+       User.findOne({ oauthID: profile.id }, function (err, user) {
+         if(err) {
+            console.log(err);  // handle errors!
+          }
+          if (!err && user !== null) {
+            done(null, user);
+          } else {
+            user = new User({
+              oauthID: profile.id,
+              forename: profile.name.givenName,
+              surname: profile.name.familyName,
+              username: profile.displayName
+            });
+            user.save(function(err) {
+              if(err) {
+                console.log(err);  // handle errors!
+              } else {
+                console.log("saving user ...");
+                done(null, user);
+              }
+            });
+          }
+       });
+  }
+));
+
+// serialize and deserialize
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
 
 // routes (found in routes.js)
 if (typeof (routes) !== 'function') {
