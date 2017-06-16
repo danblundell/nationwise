@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 const expressNunjucks = require('express-nunjucks');
 
 var passport = require('passport');
+var TwitterStrategy = require('passport-twitter').Strategy;
 var LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
@@ -17,6 +18,9 @@ const GOOGLE_CLIENT_ID = "405896018120-n8mmjoal7d3njearpd629lkd2maurvpm.apps.goo
 const GOOGLE_CLIENT_SECRET = "31_6lFXplAVbrrx9AsaIy4e2";
 const FACEBOOK_APP_ID = "1528297420585027";
 const FACEBOOK_APP_SECRET = "43c854dd5f3d582a3237abfb83bbf7fd";
+const TWITTER_CONSUMER_KEY = "1ckC6bJ9W6GIFHpRDaZlhiVLL";
+const TWITTER_CONSUMER_SECRET = "Sv7xZSl3lDYbV29AsFmwN74DXE3I2PEBEZaowiMo0eft0mvDbC";
+
 
 var routes = require('./routes.js');
 var app = express();
@@ -137,6 +141,39 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
+
+passport.use(new TwitterStrategy({
+    consumerKey: TWITTER_CONSUMER_KEY,
+    consumerSecret: TWITTER_CONSUMER_SECRET,
+    callbackURL: "http://localhost:3000/auth/twitter/callback"
+  },
+  function(token, tokenSecret, profile, done) {
+      console.log(profile);
+       User.findOne({ oauthID: profile.id }, function (err, user) {
+         if(err) {
+            console.log(err);  // handle errors!
+          }
+          if (!err && user !== null) {
+            done(null, user);
+          } else {
+            user = new User({
+              oauthID: profile.id,
+              forename: profile.displayName.split(' ')[0],
+              surname: profile.displayName.split(' ')[1],
+              username: profile.username
+            });
+            user.save(function(err) {
+              if(err) {
+                console.log(err);  // handle errors!
+              } else {
+                console.log("saving user ...");
+                done(null, user);
+              }
+            });
+          }
+       });
+  }
+));
 
 // routes (found in routes.js)
 if (typeof (routes) !== 'function') {
