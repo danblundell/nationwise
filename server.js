@@ -49,6 +49,8 @@ app.use((req,res,next) => {
 	next();
 }); // log specific request objects for clarity when testing
 
+
+
 //http://mherman.org/blog/2015/01/31/local-authentication-with-passport-and-express-4/#.WRWQAdrytPY
 
 app.use(cookieParser());
@@ -59,6 +61,10 @@ app.use(require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(function (req, res, next) {
+  res.locals.authenticated = req.isAuthenticated();
+  next(); });
 
 // passport config
 var User = require('./models/user');
@@ -119,7 +125,8 @@ passport.use(new FacebookStrategy({
               oauthID: profile.id,
               forename: profile.name.givenName,
               surname: profile.name.familyName,
-              username: profile.displayName
+              username: profile.displayName,
+              email: profile.emails[0].value
             });
             user.save(function(err) {
               if(err) {
