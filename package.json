@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "echo \"A11y_machine Tests starting:\" && a11ym http://localhost:3000/ && a11ym_output\\index.html && exit 1"
   },
   "author": "Dan Blundell",
   "license": "MIT",
